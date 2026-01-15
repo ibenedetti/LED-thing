@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuminaLED Pro - Screen Configurator</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#ccff00",
+                        obsidian: "#050505",
+                        technical: "#1a1a1a",
+                        "tech-border": "#333333"
+                    },
+                    fontFamily: {
+                        display: ["Barlow Condensed", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .grid-bg {
+            background-image: radial-gradient(circle, #ffffff08 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .stencil-cut {
+            clip-path: polygon(0 0, 92% 0, 100% 25%, 100% 100%, 8% 100%, 0 75%);
+        }
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(204, 255, 0, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            pointer-events: none;
+            animation: scanline 8s linear infinite;
+        }
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
+        }
+        .hud-corner {
+            width: 15px;
+            height: 15px;
+            border: 2px solid #ccff00;
+            position: absolute;
+        }
+        .preserve-3d { 
+            transform-style: preserve-3d; 
+        }
+        .custom-scrollbar::-webkit-scrollbar { 
+            width: 4px; 
+        }
+        .custom-scrollbar::-webkit-scrollbar-track { 
+            background: #050505; 
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb { 
+            background: rgba(204, 255, 0, 0.2); 
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { 
+            background: #ccff00; 
+        }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@19.0.0",
+        "react/": "https://esm.sh/react@19.0.0/",
+        "react-dom": "https://esm.sh/react-dom@19.0.0",
+        "react-dom/": "https://esm.sh/react-dom@19.0.0/",
+        "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+        "react-router-dom": "https://esm.sh/react-router-dom@7.1.5?deps=react@19.0.0,react-dom@19.0.0"
+      }
+    }
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-obsidian text-gray-300 antialiased font-body overflow-x-hidden">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
